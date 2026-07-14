@@ -111,8 +111,8 @@ main.main-container {
 ._01-textCon p {
   position: absolute;
   left: 0;
-  top: 10%;
-  max-width: 420px;
+  top: 20%;
+  max-width: 380px;
   font-family: "Lato";
   font-weight: 500;
   font-size: clamp(16px, 1.1vw, 19px);
@@ -120,19 +120,16 @@ main.main-container {
   color: #1f1f1f;
 }
 
-._01-img1 {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  max-width: 535px;
-  aspect-ratio: 1 / 1;
-  max-height: 535px;
-  overflow: hidden;
-}
-
 ._01-img1 .center-img {
   width: 100%;
+  position: absolute;
+  top: 90px;
+  right: 0;
+  width: 100%;
+  max-width: 42vh;
+  /* aspect-ratio: 1 / 1; */
+  max-height: 42vh;
+  overflow: hidden;
   height: 100%;
   object-fit: cover;
   display: block;
@@ -151,12 +148,12 @@ main.main-container {
 
 ._01-bigText h1 {
   position: absolute;
-  bottom: 200px;
+  bottom: 210px;
   max-width: 546px;
   width: 100%;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: clamp(64px, 12vw, 193px);
+  font-size: 160px;
   line-height: 0.76;
   color: #000000;
 }
@@ -167,7 +164,7 @@ main.main-container {
 
 .right-con {
   display: grid;
-  gap: 32px;
+  /* gap: 32px; */
   justify-content: center;
   align-items: start;
 }
@@ -216,6 +213,7 @@ main.main-container {
 }
 
 ._01-img2 {
+  padding: 32px 28px;
   width: 100%;
   overflow: hidden;
 }
@@ -234,7 +232,11 @@ main.main-container {
     gap: 40px;
   }
 
-  .left-section,
+  .left-section {
+    display: block;
+    position: relative;
+  }
+
   .right-con {
     display: flex;
     justify-content: center;
@@ -244,20 +246,28 @@ main.main-container {
   }
 
   ._01-textCon p {
-    position: static;
-    max-width: 560px;
+    position: absolute;
+    left: 15%;
+    max-width: 389px;
     margin: 0 auto;
   }
 
   ._01-heroWrap {
+    height: 400px;
+    display: block;
     width: 80%;
+    margin: 0 auto;
+    position: relative;
   }
 
   ._01-img1 {
-    position: relative;
-    width: 100%;
+    right: 120px;
+    position: absolute;
+    position: absolute;
+    top: 0;
     max-width: 420px;
-    min-height: 420px;
+    max-height: 420px;
+    width: 330px;
   }
 
   ._01-img2 .corner-img,
@@ -269,42 +279,116 @@ main.main-container {
   }
 
   ._01-bigText {
-    position: relative;
-    bottom: auto;
-    left: auto;
+    /* height: 233px; */
+    position: absolute;
+    bottom: -50px;
+    left: -80px;
     padding: 0;
     display: flex;
     justify-content: center;
   }
 
   ._01-bigText h1 {
-    position: absolute;
-    top: auto;
-    right: 0;
+    /* display: block; */
+    position: static;
+    /* bottom: 0; */
+    /* top: auto; */
+    /* right: 0; */
     max-width: 100%;
     width: 50%;
-    font-size: clamp(56px, 12vw, 90px);
+    font-size: clamp(56px, 12vw, 120px);
     line-height: 0.98;
     text-align: center;
   }
 
   ._01-bigText h1 span {
-    color: #000000;
+    color: #ffffff;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   ._01-Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 24px 16px 40px;
+    gap: 24px;
+    min-height: auto;
+  }
+
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+  }
+
+  ._01-textCon {
+    width: 100%;
   }
 
   ._01-textCon p {
+    position: static;
+    width: 100%;
+    max-width: 100%;
     font-size: 16px;
     line-height: 1.7;
+    text-align: center;
+    margin: 0;
+  }
+
+  ._01-heroWrap {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0 auto;
+  }
+
+  ._01-img1 .center-img {
+    position: relative;
+    top: 0;
+    right: auto;
+    left: auto;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+  }
+
+  ._01-bigText {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-top: 16px;
   }
 
   ._01-bigText h1 {
-    font-size: clamp(48px, 18vw, 72px);
+    position: static;
+    font-size: clamp(48px, 14vw, 72px);
+    line-height: 0.95;
+    font-weight: 900;
+    width: 100%;
+    text-align: center;
+  }
+
+  .right-con {
+    width: 100%;
+    justify-content: center;
+  }
+
+  ._01-projectCon {
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  ._01-projectCon h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  ._01-projectCon .projectsBtn {
+    padding: 10px 15px;
   }
 }
 
@@ -962,7 +1046,7 @@ main.main-container {
 @media (max-width: 1200px) {
   ._07-section {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     text-align: center;
     padding: 48px 32px;
@@ -988,7 +1072,7 @@ footer {
   color: #ffffff;
   display: grid;
   padding: 64px;
-  grid-template-columns: 40% 40% 10%;
+  grid-template-columns: 40% 40% auto;
   gap: 70px;
 }
 
