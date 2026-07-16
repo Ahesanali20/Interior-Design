@@ -1,3 +1,12 @@
+:root {
+  --font-logo: clamp(2rem, 4vw, 2.6rem);
+  --font-heading: clamp(2rem, 5vw, 3.5rem);
+  --font-subheading: clamp(1.4rem, 3vw, 2rem);
+  --font-nav: clamp(1rem, 2vw, 1.15rem);
+  --font-body: clamp(1rem, 1.8vw, 1.1rem);
+  --font-button: 0.95rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +15,7 @@
 
 body {
   font-family: "Lato", sans-serif;
+  font-size: var(--font-body);
   color: #1f1f1f;
   background: #ffffff;
   overflow-x: hidden;
@@ -17,6 +27,7 @@ header.nav-container {
   z-index: 10;
   padding: 3vw 4vw;
   background: #ffffff;
+
   /* backdrop-filter: blur(12px); */
 }
 
@@ -34,9 +45,12 @@ main.main-container {
   gap: 24px;
 }
 
+.nav-logo h1 {
+  font-size: var(--font-logo);
+}
+
 .nav-logo {
   font-family: "Abhaya Libre", serif;
-  font-size: 3vw;
   font-weight: bold;
   letter-spacing: 0.02em;
 }
@@ -46,13 +60,13 @@ main.main-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2vw;
+  gap: 1.5vw;
   flex-wrap: wrap;
 }
 
 .ul-links li {
   font-weight: 400;
-  font-size: 1.4vw;
+  font-size: var(--font-nav);
   font-family: "Lato", sans-serif;
   color: #1f1f1f;
   cursor: pointer;
@@ -78,8 +92,8 @@ main.main-container {
 .nav-btns button {
   background-color: #1f1f1f;
   color: #ffffff;
-  padding: 1vw 1.2vw;
-  font-size: 1.5vw;
+  padding: 18px 20px;
+  font-size: var(--font-button);
   font-weight: 700;
   border: none;
   cursor: pointer;
@@ -108,8 +122,8 @@ main.main-container {
 .nav-toggle span {
   display: block;
   width: 100%;
-  height: 3px;
-  border-radius: 2px;
+  height: 0.5vw;
+  border-radius: -1vw;
   background: #1f1f1f;
   transition:
     transform 200ms ease,
@@ -135,15 +149,23 @@ main.main-container {
 
   .navbar {
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1000;
     gap: 16px;
   }
 
   .nav-toggle {
     display: flex;
     padding: 0;
+    max-height: 5vw;
+    max-width: 6vw;
   }
 
   .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
     width: 100%;
     max-height: 0;
     overflow: hidden;
@@ -152,11 +174,17 @@ main.main-container {
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
+    background: #ffffff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    z-index: 1001;
   }
 
   .nav-links.open {
     max-height: 520px;
     opacity: 1;
+    padding: 8px 0;
+    pointer-events: auto;
   }
 
   .nav-links ul {
@@ -168,15 +196,240 @@ main.main-container {
   }
 
   .nav-links ul li {
+    font-size: var(--font-nav);
     width: 100%;
-    padding: 10px 0;
+    padding: 5px 0;
   }
 
   .nav-btns {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    padding: 0 18px 18px;
+    padding: 10px 18px;
+  }
+
+  .nav-btn-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-btns button {
+    width: 100%;
+    min-width: min-content;
+    max-width: max-content;
+  }
+}
+
+/* Section 01 */
+:root {
+  --font-logo: clamp(2rem, 4vw, 2.6rem);
+  --font-heading: clamp(2rem, 5vw, 3.5rem);
+  --font-subheading: clamp(1.4rem, 3vw, 2rem);
+  --font-nav: clamp(1rem, 2vw, 1.15rem);
+  --font-body: clamp(1rem, 1.8vw, 1.1rem);
+  --font-button: 0.95rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: var(--font-body);
+  color: #1f1f1f;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+header.nav-container {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 3vw 4vw;
+  background: #ffffff;
+
+  /* backdrop-filter: blur(12px); */
+}
+
+main.main-container {
+  padding: 0 4vw;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-logo h1 {
+  font-size: var(--font-logo);
+}
+
+.nav-logo {
+  font-family: "Abhaya Libre", serif;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5vw;
+  flex-wrap: wrap;
+}
+
+.ul-links li {
+  font-weight: 400;
+  font-size: var(--font-nav);
+  font-family: "Lato", sans-serif;
+  color: #1f1f1f;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.ul-links li:hover {
+  color: #775b4a;
+}
+
+.nav-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btns button {
+  background-color: #1f1f1f;
+  color: #ffffff;
+  padding: 18px 20px;
+  font-size: var(--font-button);
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.nav-btns button:hover {
+  transform: translateY(-1px);
+  background-color: #3b3b3b;
+}
+
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 38px;
+  height: 28px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 0.5vw;
+  border-radius: -1vw;
+  background: #1f1f1f;
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  transition:
+    max-height 260ms ease,
+    opacity 260ms ease;
+}
+
+@media (max-width: 768px) {
+  header.nav-container {
+    padding: 16px 20px;
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1000;
+    gap: 16px;
+  }
+
+  .nav-toggle {
+    display: flex;
+    padding: 0;
+    max-height: 5vw;
+    max-width: 6vw;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-radius: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: #ffffff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    padding: 0;
+    z-index: 1001;
+  }
+
+  .nav-links.open {
+    max-height: 520px;
+    opacity: 1;
+    padding: 8px 0;
+    pointer-events: auto;
+  }
+
+  .nav-links ul {
+    gap: 16px;
+    flex-direction: column;
+    padding: 18px 18px 10px;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-links ul li {
+    font-size: var(--font-nav);
+    width: 100%;
+    padding: 5px 0;
+  }
+
+  .nav-btns {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px 18px;
   }
 
   .nav-btn-wrap {
@@ -219,39 +472,36 @@ main.main-container {
   max-width: 23vw;
   font-family: "Lato";
   font-weight: 500;
-  font-size: 1.2vw;
+  font-size: var(--font-body);
   line-height: 1.94;
   color: #1f1f1f;
 }
 
-._01-img1 .center-img {
+._01-img1 {
   position: absolute;
-  top: 7vw;
   right: 0;
+  top: 16%;
+  width: 50%;
+  height: 28vw;
+}
+
+._01-img1 .center-img {
   width: 100%;
-  max-width: 30vw;
-  max-height: 29vw;
-  height: auto;
-  object-fit: cover;
-  overflow: hidden;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
 ._01-bigText {
-  left: 0;
+  width: min-content;
+  position: absolute;
+  top: 28vw;
+  right: 10%;
+  left: 10%;
   z-index: 1;
 }
 
 ._01-bigText h1 {
-  position: absolute;
-  height: 15vw;
-  width: 40vw;
-  z-index: 1;
-  top: 28vw;
-  bottom: 7.5vw;
-  right: 13.5vw;
   font-family: "Abhaya Libre";
   font-weight: 700;
   font-size: 10vw;
@@ -261,6 +511,7 @@ main.main-container {
 
 ._01-bigText h1 span {
   color: #ffffff;
+  text-shadow: 6px 3px 4px #0a0a0a;
 }
 
 .right-con {
@@ -277,7 +528,7 @@ main.main-container {
 ._01-projectCon p {
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: var(--font-nav);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -286,16 +537,17 @@ main.main-container {
 ._01-projectCon h2 {
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 2vw;
+  font-size: 28px;
+  width: 100%;
   line-height: 1.2;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 ._01-projectCon button {
-  padding: 1.5vw 2vw;
+  padding: 18px 20px;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 2vw;
+  font-size: 22px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #000000;
@@ -323,7 +575,7 @@ main.main-container {
 @media (max-width: 1200px) {
   ._01-Section {
     grid-template-columns: 1fr;
-    padding: 48px 32px;
+    /* padding: 48px 32px; */
     gap: 40px;
   }
 
@@ -346,6 +598,7 @@ main.main-container {
   ._01-textCon p {
     left: 10vw;
     top: 0;
+    left: 0;
     max-width: 35vw;
     font-size: 2vw;
     margin: 0 auto;
@@ -358,14 +611,16 @@ main.main-container {
     margin: 0 auto;
   }
 
-  ._01-img1 .center-img {
-    left: 55vw;
+  ._01-img1 {
+    right: 0;
     top: 0;
+    width: 43%;
+    height: 80%;
   }
 
   ._01-img2 .corner-img,
   ._01-projectCon {
-    width: 65%;
+    width: 85%;
     /* order: -1; */
     /* max-width: 36vw; */
     /* max-height: 40vw; */
@@ -381,16 +636,6 @@ main.main-container {
     justify-content: center;
   }
 
-  ._01-bigText h1 {
-    bottom: 5vw;
-    left: 38vw;
-    max-width: 100%;
-    width: auto;
-    font-size: 10.5vw;
-    line-height: 0.98;
-    text-align: center;
-  }
-
   ._01-bigText h1 span {
     color: #ffffff;
   }
@@ -401,7 +646,7 @@ main.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 16px 40px;
+    padding: 36px 0;
     gap: 24px;
     min-height: auto;
   }
@@ -421,8 +666,9 @@ main.main-container {
   ._01-textCon p {
     position: static;
     width: 100%;
+    /* font-size: 9px; */
     max-width: 75%;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     text-align: center;
     margin: 0 auto;
@@ -448,10 +694,10 @@ main.main-container {
     right: auto;
     left: auto;
     margin: 0 auto;
-    width: 60%;
-    max-width: 100%;
-    max-height: none;
-    height: 50vw;
+    /* width: 63%; */
+    max-width: 50%;
+    max-height: 40vw;
+    /* height: 50vw; */
   }
 
   ._01-bigText {
@@ -459,14 +705,14 @@ main.main-container {
     position: relative;
     left: 0;
     bottom: 0;
-    margin-top: 16px;
+    /* margin-top: 16px; */
   }
 
   ._01-bigText h1 {
     position: static;
-    font-size: 15vw;
+    /* font-size: 15vw; */
     line-height: 0.95;
-    height: 30vw;
+    /* height: 30vw; */
     font-weight: 900;
     width: 100%;
     max-width: 80%;
@@ -486,6 +732,11 @@ main.main-container {
     gap: 0;
   }
 
+  ._01-img2 {
+    width: 50%;
+    margin: 0 auto;
+  }
+
   ._01-projectCon {
     max-width: 95%;
     grid-column: 1fr;
@@ -494,12 +745,8 @@ main.main-container {
   }
 
   ._01-projectCon h2 {
-    font-size: 3vw;
+    /* font-size: 3vw; */
     margin-bottom: 16px;
-  }
-
-  ._01-projectCon .projectsBtn {
-    padding: 10px 15px;
   }
 }
 
@@ -540,7 +787,7 @@ main.main-container {
   max-width: 25vw;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 2.5vw;
+  font-size: 32px;
   line-height: 130%;
   letter-spacing: 0.28em;
   color: #000000;
@@ -550,7 +797,7 @@ main.main-container {
   max-width: 38vw;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 8vw;
+  font-size: 96px;
   line-height: 90%;
   color: #000000;
 }
@@ -558,18 +805,18 @@ main.main-container {
 ._02-text-con p {
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1.8vw;
+  font-size: 24px;
   line-height: 154%;
   color: #000000;
 }
 
 .readMoreBtn {
   min-width: 200px;
-  padding: 18px 32px;
+  padding: 18px 20px;
   background: #000000;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.8vw;
+  font-size: 24px;
   line-height: 130%;
   text-transform: uppercase;
   color: #ffffff;
@@ -580,11 +827,12 @@ main.main-container {
 @media (max-width: 1200px) {
   ._02-section {
     text-align: center;
-    gap: 0;
-    padding: 48px 36px;
+    /* gap: 0; */
+    /* padding: 48px 36px; */
   }
 
   ._02-text-con {
+    margin: 0 auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -595,9 +843,13 @@ main.main-container {
     max-width: 500px;
   }
 
-  ._02-text-con h4,
-  ._02-text-con h1 {
+  ._02-text-con h4 {
     max-width: 100%;
+    font-size: 20px;
+  }
+
+  ._02-text-con h1 {
+    font-size: 30px;
   }
 }
 
@@ -611,12 +863,8 @@ main.main-container {
     margin: 0 auto;
     /* grid-template-columns: 1fr 1fr; */
     gap: 0;
-    padding: 24px 16px;
+    padding: 36px 0;
     text-align: center;
-  }
-
-  ._02-img-con img {
-    max-width: 75%;
   }
 
   ._02-img-con {
@@ -638,16 +886,12 @@ main.main-container {
   }
 
   ._02-text-con h4 {
-    font-size: 4vw;
+    /* font-size: 4vw; */
     letter-spacing: 0.16em;
   }
 
-  ._02-text-con h1 {
-    font-size: 10vw;
-  }
-
   ._02-text-con p {
-    font-size: 16px;
+    /* font-size: 16px; */
     width: 70%;
     line-height: 1.7;
   }
@@ -657,7 +901,7 @@ main.main-container {
     width: 100%;
     max-width: 220px;
     padding: 14px 20px;
-    font-size: 16px;
+    /* font-size: 16px; */
   }
 }
 
@@ -675,7 +919,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 6vw;
+  font-size: 82px;
   line-height: 94%;
   text-transform: capitalize;
   color: #000000;
@@ -693,7 +937,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 500;
-  font-size: 1.5vw;
+  font-size: 20px;
   line-height: 190%;
   text-transform: capitalize;
   color: #000000;
@@ -703,7 +947,7 @@ main.main-container {
 ._03-text-con ._02-par span {
   font-family: "Abhaya Libre";
   font-weight: 400;
-  font-size: 6vw;
+  font-size: 82px;
   line-height: 191%;
   display: flex;
   align-items: center;
@@ -732,8 +976,8 @@ main.main-container {
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 40px;
-    padding: 48px 36px;
+    /* gap: 40px; */
+    /* padding: 48px 36px; */
   }
 
   ._03-text-con ._01-par,
@@ -756,6 +1000,7 @@ main.main-container {
     /* gap: 24px; */
     padding: 24px 16px;
     text-align: center;
+    gap: 0;
   }
 
   ._03-text-con > * {
@@ -764,12 +1009,12 @@ main.main-container {
 
   ._03-text-con h1 {
     max-width: 100%;
-    font-size: 10vw;
+    /* font-size: 10vw; */
   }
 
   ._03-text-con ._01-par p,
   ._03-text-con ._02-par p {
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     max-width: 100%;
   }
@@ -793,7 +1038,7 @@ main.main-container {
 
   ._03-img-con img {
     /* max-width: 100%; */
-    height: 60vw;
+    /* height: 60vw; */
     width: 60%;
     /* object-fit: cover; */
     /* height: 40vh; */
@@ -803,18 +1048,19 @@ main.main-container {
 /* Section 04 */
 ._04-section {
   display: grid;
+  margin: 0 auto;
   grid-template-columns: minmax(320px, 1fr) minmax(360px, 1fr);
   align-items: center;
   gap: 75px;
-  width: 100%;
+  width: 90%;
   padding: 4vw 0;
 }
 
 ._04-img-con {
   position: relative;
   width: 100%;
-  height: 100%;
-  min-height: 35vw;
+  /* height: 110%; */
+  min-height: 40vh;
 }
 
 ._04-img-con ._01-img,
@@ -825,16 +1071,17 @@ main.main-container {
 }
 
 ._04-img-con ._01-img {
-  max-width: 28vw;
-  height: 20vw;
+  max-width: 58%;
+  /* height: 64%; */
 }
 
 ._04-img-con ._02-img {
   position: absolute;
   right: 0;
   bottom: 0;
-  max-width: 30vw;
-  height: 20vw;
+  width: 60%;
+  /* max-width: 30vw; */
+  height: 58%;
   border: 6px solid #ffffff;
 }
 
@@ -846,7 +1093,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 5vw;
+  font-size: 60px;
   line-height: 100%;
   text-transform: capitalize;
   color: #000000;
@@ -856,7 +1103,7 @@ main.main-container {
   max-width: 80%;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1.5vw;
+  font-size: 20px;
   line-height: 1.8;
   color: #000000;
 }
@@ -872,14 +1119,14 @@ main.main-container {
   }
 
   ._04-img-con {
-    max-width: 75%;
+    max-width: 80%;
     min-height: 50vw;
   }
 
   ._04-img-con ._01-img {
-    width: 100%;
+    /* width: 60%; */
     max-width: 60%;
-    height: 35vw;
+    height: 30vw;
     border: 5px solid white;
     object-fit: cover;
   }
@@ -936,7 +1183,7 @@ main.main-container {
 
   ._04-text-con h1 {
     max-width: 100%;
-    font-size: 9vw;
+    /* font-size: 9vw; */
   }
 
   ._04-text-con p {
@@ -958,7 +1205,7 @@ main.main-container {
   margin: 0 auto;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 6vw;
+  font-size: 92px;
   line-height: 149%;
   text-transform: capitalize;
 }
@@ -967,22 +1214,22 @@ main.main-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  gap: 50px;
+  gap: 32px;
 }
 
 ._05-booking-con {
-  padding: 1vw;
+  padding: 16px;
 }
 
 ._05-booking-con > * {
-  margin-bottom: 1vw;
+  padding: 16px 0;
 }
 
 ._05-booking-con .fstH3 {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.1vw;
+  font-size: 20px;
   line-height: 149%;
   letter-spacing: 0.32em;
   text-transform: uppercase;
@@ -993,7 +1240,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Abhaya Libre";
   font-weight: 400;
-  font-size: 3vw;
+  font-size: 32px;
   line-height: 108%;
   text-transform: capitalize;
   color: #000000;
@@ -1003,7 +1250,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 500;
-  font-size: 1vw;
+  font-size: 16px;
   line-height: 208%;
   text-transform: uppercase;
   color: #000000;
@@ -1022,7 +1269,7 @@ main.main-container {
 ._05-booking-con ._05-price-con .price {
   font-family: "Abhaya Libre";
   font-weight: 400;
-  font-size: 2.3vw;
+  font-size: 32px;
   line-height: 208%;
   text-transform: uppercase;
   color: #000000;
@@ -1031,7 +1278,7 @@ main.main-container {
 ._05-booking-con ._05-price-con h4 {
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1.1vw;
+  font-size: 18px;
   line-height: 208%;
   text-transform: uppercase;
   color: #000000;
@@ -1039,10 +1286,10 @@ main.main-container {
 }
 
 ._05-booking-con .bookingBtn {
-  padding: 20px 32px;
+  padding: 18px 20px;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 20px;
   line-height: 1;
   text-transform: uppercase;
   color: #000000;
@@ -1052,26 +1299,25 @@ main.main-container {
 }
 
 ._05-img-con img {
-  padding: 1vw;
+  padding: 16px;
   width: 100%;
   height: 40vw;
   object-fit: cover;
 }
 
 ._05-info-con {
-  /* padding: 50px; */
-  padding: 1vw;
+  padding: 16px;
 }
 
 ._05-info-con > * {
-  margin-bottom: 80px;
+  padding: 26px 0;
 }
 
 ._05-info-con h3 {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 24px;
   line-height: 130%;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1082,7 +1328,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 500;
-  font-size: 1.3vw;
+  font-size: 20px;
   /* line-height: 110%; */
   letter-spacing: 0.06em;
   text-transform: capitalize;
@@ -1095,7 +1341,7 @@ main.main-container {
   }
 
   ._05-section ._05-h1 {
-    font-size: 7vw;
+    font-size: 76px;
     line-height: 1.05;
     margin: 3vw auto;
     max-width: 60vw;
@@ -1133,17 +1379,6 @@ main.main-container {
     gap: 24px;
   }
 
-  ._05-booking-con .fstH3,
-  ._05-booking-con h1,
-  ._05-booking-con p,
-  ._05-booking-con ._05-price-con .price,
-  ._05-booking-con ._05-price-con h4,
-  ._05-info-con h3,
-  ._05-info-con p {
-    max-width: 100%;
-    font-size: 2vw;
-  }
-
   ._05-price-con {
     display: flex;
     justify-content: center;
@@ -1154,17 +1389,13 @@ main.main-container {
   }
 
   ._05-booking-con p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 2;
   }
 
   ._05-info-con {
     padding: 0;
     order: -1;
-  }
-
-  ._05-info-con > * {
-    margin-bottom: 32px;
   }
 }
 
@@ -1269,7 +1500,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Abhaya Libre";
   font-weight: 400;
-  font-size: 5vw;
+  font-size: 72px;
   line-height: 102%;
   text-transform: capitalize;
   color: #000000;
@@ -1280,7 +1511,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1.1vw;
+  font-size: 16px;
   line-height: 144%;
   letter-spacing: 0.03em;
   text-transform: capitalize;
@@ -1297,7 +1528,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1.1vw;
+  font-size: 16px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1394,7 +1625,7 @@ main.main-container {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 1.7vw;
+  font-size: 24px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1403,12 +1634,12 @@ main.main-container {
 
 .chatBtn {
   /* max-width: 13vw; */
-  padding: 1.5vw 2vw;
+  padding: 18px 20px;
   border: 1.5px solid #000000;
   background: transparent;
   font-family: "Lato";
   font-weight: 400;
-  font-size: 2.5vw;
+  font-size: 28px;
   /* line-height: 127%; */
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1505,7 +1736,7 @@ footer {
   max-width: 217px;
   font-family: "Abhaya Libre";
   font-weight: 700;
-  font-size: 3.5vw;
+  font-size: 54px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1516,7 +1747,7 @@ footer {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.2vw;
+  font-size: 16px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1526,7 +1757,7 @@ footer {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.5vw;
+  font-size: 20px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1540,7 +1771,7 @@ footer {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.8vw;
+  font-size: 28px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1552,7 +1783,7 @@ footer {
   max-width: 100%;
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.3vw;
+  font-size: 20px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1589,7 +1820,7 @@ footer {
 .ftr-links .right-links a {
   font-family: "Lato";
   font-weight: 700;
-  font-size: 1.2vw;
+  font-size: 18px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1608,7 +1839,7 @@ footer {
 .ftr-corner-logos h3 {
   font-family: "Lato";
   font-weight: 900;
-  font-size: 1.5vw;
+  font-size: 28px;
   line-height: 144%;
   letter-spacing: 0.04em;
   text-transform: capitalize;
@@ -1715,6 +1946,1442 @@ footer {
   .ftr-corner-logos h3 {
     font-size: 18px;
     margin-right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 24px 16px;
+    gap: 20px;
+  }
+
+  .upper-con h1 {
+    font-size: 28px;
+  }
+
+  .upper-con p {
+    font-size: 13px;
+    margin-top: 16px;
+  }
+
+  .lower-con p {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+
+  .signUp-text-con h2 {
+    font-size: 18px;
+  }
+
+  .signUp-text-con p {
+    font-size: 14px;
+    margin-top: 16px;
+    margin-bottom: 6px;
+  }
+
+  .ftr-links .left-links a,
+  .ftr-links .right-links a {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  .ftr-corner-logos h3 {
+    font-size: 16px;
+    margin-right: 12px;
+  }
+}
+
+@media (max-width: 1200px) {
+  ._01-Section {
+    grid-template-columns: 1fr;
+    /* padding: 48px 32px; */
+    gap: 40px;
+  }
+
+  .left-section {
+    width: 96%;
+    /* display: block; */
+    position: relative;
+    margin: 0 auto;
+  }
+
+  .right-con {
+    display: grid;
+    width: 96%;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    gap: 20px;
+  }
+
+  ._01-textCon p {
+    left: 10vw;
+    top: 0;
+    left: 0;
+    max-width: 35vw;
+    font-size: 2vw;
+    margin: 0 auto;
+  }
+
+  ._01-heroWrap {
+    height: 40vw;
+    display: block;
+    width: 80%;
+    /* margin: 0 auto; */
+  }
+
+  ._01-img1 .center-img {
+    object-fit: cover;
+    left: 55vw;
+    top: 0;
+  }
+
+  ._01-img2 .corner-img,
+  ._01-projectCon {
+    width: 100%;
+    /* order: -1; */
+    /* max-width: 36vw; */
+    /* max-height: 40vw; */
+    margin: 0 auto;
+  }
+
+  ._01-bigText {
+    position: absolute;
+    left: 30%;
+    top: 58%;
+  }
+
+  ._01-bigText h1 span {
+    color: #ffffff;
+    text-shadow: 6px 3px 4px #0a0a0a;
+
+    h1 {
+      text-shadow: 2px 2px 5px gray;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 5px gray;
+    }
+
+    h1 {
+      text-shadow: 2px 2px 5px gray;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  ._01-Section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 0;
+    gap: 24px;
+    min-height: auto;
+  }
+
+  .left-section {
+    /* display: block; */
+    /* flex-direction: column; */
+    align-items: center;
+    /* gap: 16px; */
+    width: 100%;
+    min-height: 35vh;
+  }
+
+  ._01-textCon {
+    width: 100%;
+  }
+
+  ._01-textCon p {
+    position: static;
+    width: 100%;
+    /* font-size: 9px; */
+    max-width: 75%;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  ._01-heroWrap {
+    position: relative;
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    /* display: flex; */
+    /* width: 100%; */
+    /* align-items: center; */
+    /* height: auto; */
+  }
+
+  ._01-img1 {
+    width: 100%;
+    left: 0%;
+    top: 10%;
+    margin: 0;
+  }
+
+  ._01-img1 .center-img {
+    margin: 0;
+    left: 35%;
+    width: 100%;
+  }
+
+  ._01-bigText {
+    position: absolute;
+    left: -2%;
+    top: 65%;
+  }
+
+  ._01-bigText h1 {
+    /* font-size: 39px; */
+  }
+
+  ._01-bigText h1 span {
+    /* color: #000000; */
+  }
+
+  .right-con {
+    width: 100%;
+    /* justify-content: center; */
+    grid-template-columns: 1fr;
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+
+  ._01-projectCon {
+    max-width: 95%;
+    grid-column: 1fr;
+    /* text-align: center; */
+    /* line-height: 1.4; */
+  }
+
+  ._01-projectCon h2 {
+    /* font-size: 3vw; */
+    margin-bottom: 16px;
+  }
+}
+
+/* Section 02 */
+._02-section {
+  display: grid;
+  grid-template-columns: 40% auto;
+  align-items: center;
+  gap: 80px 122px;
+  width: 100%;
+  padding: 4vw 0;
+}
+
+._02-img-con {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+._02-img-con img {
+  width: 100%;
+  max-width: 35vw;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+._02-text-con {
+  max-width: 90%;
+}
+
+._02-text-con > * {
+  padding: 20px 0;
+}
+
+._02-text-con h4 {
+  max-width: 25vw;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 130%;
+  letter-spacing: 0.28em;
+  color: #000000;
+}
+
+._02-text-con h1 {
+  max-width: 38vw;
+  font-family: "Abhaya Libre";
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 90%;
+  color: #000000;
+}
+
+._02-text-con p {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 154%;
+  color: #000000;
+}
+
+.readMoreBtn {
+  min-width: 200px;
+  padding: 18px 20px;
+  background: #000000;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  ._02-section {
+    text-align: center;
+    margin: 0 auto;
+    width: 96%;
+    /* gap: 0; */
+    /* padding: 48px 36px; */
+  }
+
+  ._02-text-con {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 40vw;
+  }
+
+  ._02-text-con p {
+    max-width: 500px;
+  }
+
+  ._02-text-con h4 {
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  ._02-text-con h1 {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  ._02-section {
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    /* grid-template-columns: 1fr 1fr; */
+    gap: 0;
+    padding: 36px 0;
+    text-align: center;
+  }
+
+  ._02-img-con {
+    width: 75%;
+  }
+
+  ._02-text-con {
+    max-width: 100%;
+  }
+
+  ._02-text-con > * {
+    padding: 12px 0;
+  }
+
+  ._02-text-con h4,
+  ._02-text-con h1,
+  ._02-text-con p {
+    max-width: 100%;
+  }
+
+  ._02-text-con h4 {
+    /* font-size: 4vw; */
+    letter-spacing: 0.16em;
+  }
+
+  ._02-text-con p {
+    font-size: 18px;
+    width: 70%;
+    line-height: 1.7;
+  }
+
+  .readMoreBtn {
+    /* min-width: 0; */
+    width: 100%;
+    max-width: 220px;
+    padding: 14px 20px;
+    font-size: 20px;
+  }
+}
+
+/* Section 03 */
+._03-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 80px 122px;
+  width: 100%;
+  padding: 4vw 0;
+}
+
+._03-text-con h1 {
+  max-width: 100%;
+  font-family: "Abhaya Libre";
+  font-weight: 700;
+  font-size: 82px;
+  line-height: 94%;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+._03-text-con ._01-par,
+._03-text-con ._02-par {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+._03-text-con ._01-par p,
+._03-text-con ._02-par p {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 190%;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+._03-text-con ._01-par span,
+._03-text-con ._02-par span {
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 82px;
+  line-height: 191%;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+._03-text-con ._02-par span {
+  margin-right: 16px;
+}
+
+._03-img-con {
+  height: 100%;
+}
+
+._03-img-con img {
+  width: 100%;
+  max-width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  ._03-section {
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    /* padding: 48px 36px; */
+  }
+
+  ._03-text-con ._01-par,
+  ._03-text-con ._02-par {
+    justify-content: center;
+  }
+
+  ._03-img-con img {
+    max-width: 100%;
+    height: 40vw;
+    border: 3px solid black;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  ._03-section {
+    display: flex;
+    flex-direction: column;
+    /* gap: 24px; */
+    padding: 24px 16px;
+    text-align: center;
+    gap: 0;
+  }
+
+  ._03-text-con > * {
+    margin: 16px 0;
+  }
+
+  ._03-text-con h1 {
+    max-width: 100%;
+    font-size: 60px;
+  }
+
+  ._03-text-con ._01-par p,
+  ._03-text-con ._02-par p {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 100%;
+  }
+
+  ._03-text-con ._01-par span,
+  ._03-text-con ._02-par span {
+    font-size: 60px;
+    line-height: 1.2;
+    justify-content: center;
+  }
+
+  ._03-text-con {
+    width: 90%;
+  }
+
+  ._03-img-con {
+    width: 95%;
+    order: -1;
+    /* height: 57vw; */
+  }
+
+  ._03-img-con img {
+    /* max-width: 100%; */
+    /* height: 60vw; */
+    width: 60%;
+    /* object-fit: cover; */
+    /* height: 40vh; */
+  }
+}
+
+/* Section 04 */
+._04-section {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(360px, 1fr);
+  align-items: center;
+  gap: 75px;
+  width: 100%;
+  padding: 4vw 0;
+}
+
+._04-img-con {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 35vw;
+}
+
+._04-img-con ._01-img,
+._04-img-con ._02-img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+._04-img-con ._01-img {
+  max-width: 28vw;
+  height: 20vw;
+}
+
+._04-img-con ._02-img {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  max-width: 30vw;
+  height: 20vw;
+  border: 6px solid #ffffff;
+}
+
+._04-text-con > * {
+  margin-bottom: 50px;
+}
+
+._04-text-con h1 {
+  max-width: 100%;
+  font-family: "Abhaya Libre";
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 100%;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+._04-text-con p {
+  max-width: 80%;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #000000;
+}
+
+@media (max-width: 1200px) {
+  ._04-section {
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  ._04-img-con {
+    max-width: 80%;
+    min-height: 50vw;
+  }
+
+  ._04-img-con ._01-img {
+    /* width: 60%; */
+    max-width: 60%;
+    height: 30vw;
+    border: 5px solid white;
+    object-fit: cover;
+  }
+
+  ._04-img-con ._02-img {
+    width: 100%;
+    max-width: 60%;
+    height: 30vw;
+  }
+
+  ._04-text-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 900px;
+    gap: 24px;
+    margin: 0;
+  }
+
+  ._04-text-con > * {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  ._04-section {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 16px;
+  }
+
+  ._04-img-con {
+    /* min-height: 50vh; */
+    max-width: 90%;
+  }
+
+  ._04-img-con ._01-img,
+  ._04-img-con ._02-img {
+    position: absolute;
+    max-width: 60%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/2;
+    border: 4px solid #ffffff;
+  }
+
+  ._04-text-con {
+    width: 90%;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  ._04-text-con h1 {
+    max-width: 100%;
+    font-size: 60px;
+  }
+
+  ._04-text-con p {
+    font-size: 16px;
+    width: 85%;
+    line-height: 1.7;
+  }
+}
+
+/* Section 05 */
+._05-section {
+  width: 100%;
+  padding: 4vw 0;
+}
+
+._05-section ._05-h1 {
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "Abhaya Libre";
+  font-weight: 700;
+  font-size: 92px;
+  line-height: 149%;
+  text-transform: capitalize;
+}
+
+._05-section-con {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 32px;
+}
+
+._05-booking-con {
+  padding: 16px;
+}
+
+._05-booking-con > * {
+  padding: 16px 0;
+}
+
+._05-booking-con .fstH3 {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 149%;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+._05-booking-con h1 {
+  max-width: 100%;
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 108%;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+._05-booking-con p {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 208%;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+._05-booking-con ._05-price-con {
+  display: flex;
+  align-items: center;
+  /* margin: 0 auto; */
+  /* justify-content: center; */
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+}
+
+._05-booking-con ._05-price-con .price {
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 208%;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+._05-booking-con ._05-price-con h4 {
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 208%;
+  text-transform: uppercase;
+  color: #000000;
+  word-spacing: 2px;
+}
+
+._05-booking-con .bookingBtn {
+  padding: 18px 20px;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #000000;
+  background: transparent;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+._05-img-con img {
+  padding: 16px;
+  width: 100%;
+  height: 40vw;
+  object-fit: cover;
+}
+
+._05-info-con {
+  padding: 16px;
+}
+
+._05-info-con > * {
+  padding: 26px 0;
+}
+
+._05-info-con h3 {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #000000;
+}
+
+._05-info-con p {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 500;
+  font-size: 20px;
+  /* line-height: 110%; */
+  letter-spacing: 0.06em;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+@media (max-width: 1200px) {
+  ._05-section {
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  ._05-section ._05-h1 {
+    font-size: 76px;
+    line-height: 1.05;
+    margin: 3vw auto;
+    max-width: 60vw;
+  }
+
+  ._05-section-con {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  ._05-img-con {
+    width: 100%;
+    max-width: 860px;
+    order: -1;
+  }
+
+  ._05-img-con img {
+    width: 55%;
+    height: auto;
+    max-height: 55vw;
+    object-fit: cover;
+  }
+
+  ._05-booking-con,
+  ._05-info-con {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  ._05-price-con {
+    display: flex;
+    justify-content: center;
+  }
+
+  ._05-price-con .price {
+    font-size: 4vw;
+  }
+
+  ._05-booking-con p {
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  ._05-info-con {
+    padding: 0;
+    order: -2;
+  }
+}
+
+@media (max-width: 768px) {
+  ._05-section {
+    padding: 24px 16px;
+  }
+
+  ._05-section ._05-h1 {
+    font-size: 72px;
+    line-height: 1.1;
+    max-width: 100%;
+    margin: 16px auto 24px;
+  }
+
+  ._05-section-con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    /* grid-template-columns: 1fr; */
+    /* gap: 20px; */
+  }
+
+  ._05-booking-con > * {
+    margin-bottom: 0;
+  }
+
+  ._05-booking-con .fstH3 {
+    font-size: 20px;
+    letter-spacing: 0.16em;
+  }
+
+  ._05-booking-con h1 {
+    font-size: 48px;
+  }
+
+  ._05-booking-con p {
+    width: auto;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  ._05-price-con {
+    justify-content: center;
+    gap: 0;
+  }
+
+  ._05-booking-con .bookingBtn {
+    width: 65%;
+    max-width: 240px;
+    padding: 16px 20px;
+    font-size: 20px;
+  }
+
+  ._05-img-con img {
+    width: 60%;
+    height: 40vh;
+    max-height: none;
+  }
+
+  ._05-info-con {
+    text-align: center;
+    order: -2;
+    /* width: 38%; */
+  }
+
+  ._05-info-con > * {
+    margin-bottom: 0;
+  }
+
+  ._05-info-con h3,
+  ._05-info-con p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+}
+
+/* Section 06 */
+._06-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  padding: 4vw 0;
+}
+
+._06-img-con {
+  height: 100%;
+}
+
+._06-img-con img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+._06-text-con h1 {
+  max-width: 80%;
+  font-family: "Abhaya Libre";
+  font-weight: 400;
+  font-size: 72px;
+  line-height: 102%;
+  text-transform: capitalize;
+  color: #000000;
+  margin-bottom: 45px;
+}
+
+._06-text-con p {
+  max-width: 80%;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 144%;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+._06-imgAndText-con img {
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+}
+
+._06-imgAndText-con p {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: #000000;
+  padding-top: 3vw;
+}
+
+@media (max-width: 1200px) {
+  ._06-section {
+    width: 96%;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+  }
+
+  ._06-text-con {
+    text-align: center;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    order: -1;
+  }
+
+  ._06-img-con,
+  ._06-imgAndText-con {
+    width: 100%;
+    padding: 20px;
+  }
+
+  ._06-img-con {
+    grid-column: 1 / 2;
+    height: 100%;
+  }
+
+  ._06-img-con img,
+  ._06-imgAndText-con img {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  ._06-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 24px 16px;
+    gap: 0;
+  }
+
+  ._06-text-con {
+    width: 90%;
+    margin: 0 auto;
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  ._06-text-con h1 {
+    font-size: 10vw;
+    margin-bottom: 24px;
+    max-width: fit-content;
+  }
+
+  ._06-text-con p,
+  ._06-imgAndText-con p {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: fit-content;
+  }
+
+  ._06-imgAndText-con {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  ._06-imgAndText-con img {
+    width: 80%;
+  }
+
+  ._06-img-con {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  ._06-img-con img {
+    height: 20vh;
+    margin: 0 auto;
+  }
+}
+
+/* Section 07 */
+._07-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  padding: 4vw 0;
+}
+
+._07-text-con > * {
+  margin-bottom: 50px;
+}
+
+._07-text-con p {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+.chatBtn {
+  /* max-width: 13vw; */
+  padding: 18px 20px;
+  border: 1.5px solid #000000;
+  background: transparent;
+  font-family: "Lato";
+  font-weight: 400;
+  font-size: 28px;
+  /* line-height: 127%; */
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.chatBtn:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+._07-img-con img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  /* aspect-ratio: 724 / 530; */
+  object-fit: cover;
+}
+
+@media (max-width: 1200px) {
+  ._07-section {
+    width: 96%;
+    margin: 0 auto;
+    gap: 0;
+  }
+
+  ._07-text-con {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  ._07-text-con p {
+    max-width: 500px;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    font-size: 20px;
+  }
+
+  ._07-img-con img {
+    max-width: 80%;
+    max-height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  ._07-section {
+    display: flex;
+    padding: 24px 16px;
+    gap: 24px;
+  }
+
+  ._07-text-con > * {
+    margin-bottom: 24px;
+  }
+
+  ._07-text-con p {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .chatBtn {
+    width: 100%;
+    max-width: 220px;
+    padding: 14px 20px;
+    font-size: 16px;
+  }
+
+  ._07-img-con img {
+    width: 50%;
+  }
+}
+
+/* Footer */
+footer {
+  background: #000000;
+  color: #ffffff;
+  display: grid;
+  padding: 4vw;
+  grid-template-columns: 38% 38% 20%;
+  gap: 70px;
+}
+
+.ftr-left-con {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.upper-con h1 {
+  max-width: 217px;
+  font-family: "Abhaya Libre";
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+.upper-con p {
+  margin-top: 45px;
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+.lower-con p {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+.signUp-text-con {
+  margin-top: 80px;
+}
+
+.signUp-text-con h2 {
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+
+.signUp-text-con p {
+  position: relative;
+  max-width: 100%;
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  margin-top: 55px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.white-arr {
+  position: absolute;
+  width: 43px;
+  height: 0;
+  left: 0;
+}
+
+.ftr-signUp-con hr {
+  border: 2.5px solid #ffffff;
+}
+
+.ftr-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.ftr-links .left-links,
+.ftr-links .right-links {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ftr-links .left-links a,
+.ftr-links .right-links a {
+  font-family: "Lato";
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #ffffff;
+  margin: 10px 0;
+}
+
+.ftr-corner-logos {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ftr-corner-logos h3 {
+  font-family: "Lato";
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 144%;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1200px) {
+  footer {
+    padding: 48px 32px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .ftr-corner-logos {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+  }
+
+  .upper-con h1 {
+    font-size: 42px;
+  }
+
+  .upper-con p {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .signUp-text-con h2 {
+    font-size: 24px;
+    max-width: 100%;
+  }
+
+  .signUp-text-con p {
+    font-size: 18px;
+    max-width: 100%;
+  }
+
+  .ftr-signUp-con hr {
+    max-width: 100%;
+  }
+
+  .ftr-links .left-links a,
+  .ftr-links .right-links a {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    padding: 32px 24px;
+    position: relative;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .ftr-left-con {
+    margin: 0;
+  }
+
+  .upper-con h1 {
+    font-size: 36px;
+  }
+
+  .upper-con p,
+  .lower-con p {
+    font-size: 16px;
+    /* position: absolute; */
+  }
+
+  .signUp-text-con {
+    margin-top: 0;
+  }
+
+  .signUp-text-con h2 {
+    font-size: 20px;
+  }
+
+  .signUp-text-con p {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+
+  .ftr-signUp-con hr {
+    margin: 20px 0;
+  }
+
+  .ftr-links {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ftr-links .left-links,
+  .ftr-links .right-links {
+    margin-top: 0;
+  }
+
+  .ftr-links .left-links a,
+  .ftr-links .right-links a {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+
+  .ftr-corner-logos {
+    padding-top: 20px;
+    justify-content: flex-end;
+  }
+
+  .ftr-corner-logos h3 {
+    font-size: 18px;
+    margin-right: 16px;
+  }
+
+  .lower-con p {
+    position: absolute;
+    bottom: 5%;
   }
 }
 
