@@ -2154,13 +2154,16 @@ footer {
   ._01-projectCon {
     max-width: 95%;
     grid-column: 1fr;
-    /* text-align: center; */
-    /* line-height: 1.4; */
   }
 
   ._01-projectCon h2 {
-    /* font-size: 3vw; */
+    font-size: 16px;
     margin-bottom: 16px;
+  }
+
+  ._01-projectCon button {
+    font-size: 16px;
+    padding: 10px 14px;
   }
 }
 
@@ -2301,23 +2304,28 @@ footer {
     max-width: 100%;
   }
 
+  ._02-text-con h1 {
+    font-size: 38px;
+  }
+
   ._02-text-con h4 {
-    /* font-size: 4vw; */
+    font-size: 18px;
     letter-spacing: 0.16em;
   }
 
   ._02-text-con p {
-    font-size: 18px;
-    width: 70%;
+    font-size: 16px;
+    width: 90%;
     line-height: 1.7;
   }
 
   .readMoreBtn {
     /* min-width: 0; */
-    width: 100%;
-    max-width: 220px;
-    padding: 14px 20px;
-    font-size: 20px;
+    /* width: 42%; */
+    min-width: 140px;
+    /* max-width: 51%; */
+    padding: 10px 12px;
+    font-size: 18px;
   }
 }
 
@@ -2413,10 +2421,11 @@ footer {
 
 @media (max-width: 768px) {
   ._03-section {
+    width: 100%;
     display: flex;
     flex-direction: column;
     /* gap: 24px; */
-    padding: 24px 16px;
+    /* padding: 24px 16px; */
     text-align: center;
     gap: 0;
   }
@@ -2427,7 +2436,7 @@ footer {
 
   ._03-text-con h1 {
     max-width: 100%;
-    font-size: 60px;
+    font-size: 36px;
   }
 
   ._03-text-con ._01-par p,
@@ -2574,7 +2583,7 @@ footer {
   ._04-section {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 24px 16px;
+    /* padding: 24px 16px; */
   }
 
   ._04-img-con {
@@ -2593,14 +2602,14 @@ footer {
   }
 
   ._04-text-con {
-    width: 90%;
+    width: 100%;
     margin-top: 0;
     text-align: center;
   }
 
   ._04-text-con h1 {
     max-width: 100%;
-    font-size: 60px;
+    font-size: 36px;
   }
 
   ._04-text-con p {
@@ -2727,7 +2736,7 @@ footer {
 }
 
 ._05-info-con > * {
-  padding: 26px 0;
+  padding: 16px 0;
 }
 
 ._05-info-con h3 {
@@ -2788,12 +2797,13 @@ footer {
 
   ._05-booking-con,
   ._05-info-con {
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0;
+    padding: 0;
   }
 
   ._05-price-con {
@@ -2818,11 +2828,11 @@ footer {
 
 @media (max-width: 768px) {
   ._05-section {
-    padding: 24px 16px;
+    /* padding: 24px 16px; */
   }
 
   ._05-section ._05-h1 {
-    font-size: 72px;
+    font-size: 36px;
     line-height: 1.1;
     max-width: 100%;
     margin: 16px auto 24px;
@@ -2848,7 +2858,12 @@ footer {
   }
 
   ._05-booking-con h1 {
-    font-size: 48px;
+    font-size: 32px;
+    width: 100%;
+  }
+
+  ._05-booking-con > * {
+    padding: 5px 0;
   }
 
   ._05-booking-con p {
@@ -2863,14 +2878,14 @@ footer {
   }
 
   ._05-booking-con .bookingBtn {
-    width: 65%;
-    max-width: 240px;
+    /* min-width: 100px; */
+    max-width: 170px;
     padding: 16px 20px;
     font-size: 20px;
   }
 
   ._05-img-con img {
-    width: 60%;
+    width: 70%;
     height: 40vh;
     max-height: none;
   }
@@ -2993,7 +3008,7 @@ footer {
   ._06-section {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 24px 16px;
+    /* padding: 24px 16px; */
     gap: 0;
   }
 
@@ -3005,7 +3020,7 @@ footer {
   }
 
   ._06-text-con h1 {
-    font-size: 10vw;
+    font-size: 32px;
     margin-bottom: 24px;
     max-width: fit-content;
   }
@@ -3018,7 +3033,7 @@ footer {
   }
 
   ._06-imgAndText-con {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
   }
 
