@@ -646,7 +646,7 @@ main.main-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 0;
+    padding: 36px 0;
     gap: 24px;
     min-height: auto;
   }
