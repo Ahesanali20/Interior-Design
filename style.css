@@ -193,7 +193,7 @@ main.main-container {
   position: absolute;
   top: 28vw;
   right: 10%;
-  left: 10%;
+  left: 9%;
   z-index: 1;
 }
 
@@ -907,7 +907,7 @@ footer {
     display: flex;
     justify-content: center;
     position: absolute;
-    left: 30%;
+    left: 31%;
     top: 58%;
   }
 
@@ -1677,7 +1677,7 @@ footer {
   ._01-bigText {
     order: 1;
     position: relative;
-    left: -18%;
+    left: -16%;
   }
 
   ._01-bigText h1 {
@@ -1762,8 +1762,13 @@ footer {
     left: 40%;
   }
 
+  ._01-img2 {
+    width: 65%;
+    margin: 0 auto;
+  }
+
   ._01-bigText {
-    left: 8%;
+    left: 9%;
     top: 68%;
   }
 }
